@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,7 +16,8 @@
 
     <!-- Custom styles for this template-->
     <link href="template/css/sb-admin-2.min.css" rel="stylesheet">
-
+    <!-- DataTables CSS -->
+    <link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
@@ -33,12 +33,10 @@
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-
                 </nav>
                 <!-- End of Topbar -->
 
@@ -61,7 +59,6 @@
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
-
                                         <tr>
                                             <th>Nomor</th>
                                             <th>Kode</th>
@@ -74,6 +71,18 @@
                                         </tr>
                                     </thead>
                                     <tfoot>
+                                        <tr>
+                                            <th>Nomor</th>
+                                            <th>Kode</th>
+                                            <th>Barang</th>
+                                            <th>Jumlah</th>
+                                            <th>Satuan</th>
+                                            <th>Harga</th>
+                                            <th>Status Barang</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
                                         <?php
                                         include 'koneksi.php';
                                         $no = 1;
@@ -89,15 +98,18 @@
                                                 <td><?php echo $d['harga_beli']; ?></td>
                                                 <td><?php echo $d['status_barang']; ?></td>
                                                 <td>
-                                                    <a href="">EDIT</a>
-                                                    <a href="">HAPUS</a>
+                                                    <a href="edit.php?id=<?php echo $d['id_barang']; ?>" class="btn btn-warning btn-circle btn-sm">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                    <a href="delete.php?id=<?php echo $d['id_barang']; ?>" class="btn btn-danger btn-circle btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus barang ini?')">
+                                                        <i class="fas fa-trash"></i>
+                                                    </a>
                                                 </td>
-
                                             </tr>
                                         <?php
                                         }
                                         ?>
-                                        </tbody>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -113,7 +125,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; Your Website 2024</span>
                     </div>
                 </div>
             </footer>
@@ -130,25 +142,6 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Bootstrap core JavaScript-->
     <script src="template/vendor/jquery/jquery.min.js"></script>
     <script src="template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -159,13 +152,14 @@
     <!-- Custom scripts for all pages-->
     <script src="template/js/sb-admin-2.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="template/vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="template/js/demo/chart-area-demo.js"></script>
-    <script src="template/js/demo/chart-pie-demo.js"></script>
-
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <!-- Initialize DataTables -->
+    <script>
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+    });
+    </script>
 </body>
 
 </html>

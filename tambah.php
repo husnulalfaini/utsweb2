@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,7 +24,6 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -34,12 +32,10 @@
 
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-
                 </nav>
                 <!-- End of Topbar -->
 
@@ -48,7 +44,7 @@
 
                     <div class="row">
 
-                        <div class="col-lg-6 ml-">
+                        <div class="col-lg-6">
 
                             <!-- Circle Buttons -->
                             <div class="card shadow mb-4">
@@ -59,30 +55,41 @@
 
                                     <form method="post" action="tambah_aksi.php">
                                         <div class="mb-3">
-                                            <label for="exampleInput" class="form-label">kode</label>
-                                            <input type="text" class="form-control" name="kode_barang" id="exampleInput" aria-describedby="Help">
+                                            <label for="kode_barang" class="form-label">Kode</label>
+                                            <input type="text" class="form-control" name="kode_barang" id="kode_barang" aria-describedby="kodeHelp">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="exampleInput" class="form-label">nama</label>
-                                            <input type="text" class="form-control" name="nama_barang" id="exampleInput" aria-describedby="Help">
+                                            <label for="nama_barang" class="form-label">Nama</label>
+                                            <input type="text" class="form-control" name="nama_barang" id="nama_barang" aria-describedby="namaHelp">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="exampleInput" class="form-label">jumlah</label>
-                                            <input type="number" class="form-control" name="jumlah_barang" id="exampleInput" aria-describedby="Help">
+                                            <label for="jumlah_barang" class="form-label">Jumlah</label>
+                                            <input type="number" class="form-control" name="jumlah_barang" id="jumlah_barang" aria-describedby="jumlahHelp">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="exampleInput" class="form-label">satuan</label>
-                                            <input type="text" class="form-control" name="satuan_barang" id="exampleInput" aria-describedby="Help">
+                                            <label for="satuan_barang" class="form-label">Satuan</label>
+                                            <select class="form-control" name="satuan_barang" id="satuan_barang">
+                                                <option value="kg">Kg</option>
+                                                <option value="pcs">Pcs</option>
+                                                <option value="liter">Liter</option>
+                                                <option value="meter">Meter</option>
+                                            </select>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="exampleInput" class="form-label">harga</label>
-                                            <input type="number" class="form-control" name="harga_beli" id="exampleInput" aria-describedby="Help">
+                                            <label for="harga_beli" class="form-label">Harga</label>
+                                            <input type="number" class="form-control" name="harga_beli" id="harga_beli" aria-describedby="hargaHelp">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="exampleInput" class="form-label">status</label>
-                                            <input type="number" class="form-control" name="status_barang" id="exampleInput" aria-describedby="Help">
+                                            <label for="status_barang" class="form-label">Status</label>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="status_barang" id="status_barang" value="1">
+                                                <label class="form-check-label" for="status_barang">
+                                                    Available
+                                                </label>
+                                            </div>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Submit</button>
+                                        <a href="index.php" class="btn btn-secondary">Cancel</a>
                                     </form>
 
                                 </div>
@@ -101,7 +108,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; Your Website 2024</span>
                     </div>
                 </div>
             </footer>
@@ -118,25 +125,6 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Bootstrap core JavaScript-->
     <script src="template/vendor/jquery/jquery.min.js"></script>
     <script src="template/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -146,14 +134,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="template/js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="template/vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="template/js/demo/chart-area-demo.js"></script>
-    <script src="template/js/demo/chart-pie-demo.js"></script>
-
 </body>
 
 </html>
