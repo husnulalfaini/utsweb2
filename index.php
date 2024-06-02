@@ -98,6 +98,12 @@
                                                 <td><?php echo $d['harga_beli']; ?></td>
                                                 <td><?php echo $d['status_barang']; ?></td>
                                                 <td>
+                                                    <a href="penambahan_barang.php?id=<?php echo $d['id_barang']; ?>" class="btn btn-primary btn-circle btn-sm">
+                                                        <i class="fas fa-plus"></i>
+                                                    </a>
+                                                    <a href="pengurangan_barang.php?id=<?php echo $d['id_barang']; ?>" class="btn btn-primary btn-circle btn-sm">
+                                                        <i class="fas fa-minus"></i>
+                                                    </a>
                                                     <a href="edit.php?id=<?php echo $d['id_barang']; ?>" class="btn btn-warning btn-circle btn-sm">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
@@ -156,9 +162,9 @@
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <!-- Initialize DataTables -->
     <script>
-    $(document).ready(function() {
-        $('#dataTable').DataTable();
-    });
+        $(document).ready(function() {
+            $('#dataTable').DataTable();
+        });
     </script>
 </body>
 
